@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freeai - AI Content Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-magic"></i>
+                <span>Freeai</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a>
+                <a href="{{ url_for('register') }}" class="btn btn-secondary">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Create Amazing AI Content in Seconds</h1>
+            <p>Generate videos, images, and 3D models using the power of artificial intelligence</p>
+            <div class="hero-buttons">
+                <a href="{{ url_for('register') }}" class="btn btn-large btn-primary">Get Started Free</a>
+                <a href="#features" class="btn btn-large btn-outline">Learn More</a>
+            </div>
+            <div class="hero-image">
+                <div class="animation-box">
+                    <i class="fas fa-film"></i>
+                    <i class="fas fa-image"></i>
+                    <i class="fas fa-cube"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Powerful Features</h2>
+            <div class="features-grid">
+                <!-- Video Generation -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3>Video Generation</h3>
+                    <p>Create stunning AI-generated videos from simple text prompts. Perfect for content creators and marketers.</p>
+                    <ul>
+                        <li>✓ HD/4K quality</li>
+                        <li>✓ Custom length</li>
+                        <li>✓ Multiple styles</li>
+                    </ul>
+                </div>
+
+                <!-- Image Generation -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3>Image Generation</h3>
+                    <p>Generate beautiful, high-quality images from text descriptions. Use for designs, art, and illustrations.</p>
+                    <ul>
+                        <li>✓ Multiple resolutions</li>
+                        <li>✓ Various art styles</li>
+                        <li>✓ Batch generation</li>
+                    </ul>
+                </div>
+
+                <!-- 3D Model Generation -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>3D Model Generation</h3>
+                    <p>Create 3D models from text descriptions. Export in OBJ, GLTF, and other standard formats.</p>
+                    <ul>
+                        <li>✓ Multiple export formats</li>
+                        <li>✓ Customizable detail</li>
+                        <li>✓ Real-time preview</li>
+                    </ul>
+                </div>
+
+                <!-- Fast Processing -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Optimized algorithms for quick generation without compromising quality.</p>
+                    <ul>
+                        <li>✓ 30 sec videos</li>
+                        <li>✓ Instant images</li>
+                        <li>✓ Fast rendering</li>
+                    </ul>
+                </div>
+
+                <!-- Free Access -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Completely Free</h3>
+                    <p>No credit card required. Start creating immediately after signing up.</p>
+                    <ul>
+                        <li>✓ Free account</li>
+                        <li>✓ Fair usage</li>
+                        <li>✓ Premium plans</li>
+                    </ul>
+                </div>
+
+                <!-- Easy to Use -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mouse"></i>
+                    </div>
+                    <h3>Simple & Intuitive</h3>
+                    <p>User-friendly interface that anyone can master in minutes.</p>
+                    <ul>
+                        <li>✓ Drag & drop</li>
+                        <li>✓ Templates</li>
+                        <li>✓ API access</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Sign Up</h3>
+                    <p>Create a free account in seconds</p>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Describe</h3>
+                    <p>Write what you want to create</p>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Generate</h3>
+                    <p>AI creates your content instantly</p>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Download</h3>
+                    <p>Get your creation in high quality</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Create Amazing Content?</h2>
+            <p>Join thousands of creators using Freeai to bring their ideas to life</p>
+            <a href="{{ url_for('register') }}" class="btn btn-large btn-primary">Start Creating Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Freeai</h4>
+                    <p>Create amazing AI content for free</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Freeai. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

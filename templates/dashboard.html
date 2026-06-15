@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Freeai</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard-page">
+    <!-- Navigation -->
+    <nav class="dashboard-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-magic"></i>
+                <span>Freeai</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#dashboard" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+                <a href="#history" class="nav-link">
+                    <i class="fas fa-history"></i>
+                    History
+                </a>
+                <a href="#settings" class="nav-link">
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </a>
+            </div>
+            <div class="nav-user">
+                <div class="user-menu">
+                    <i class="fas fa-user-circle"></i>
+                    <span id="username"></span>
+                    <div class="dropdown">
+                        <a href="#profile">Profile</a>
+                        <a href="#account">Account</a>
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="generator-menu">
+                <h3>Create New</h3>
+                <button class="menu-item active" data-type="video">
+                    <i class="fas fa-film"></i>
+                    <span>Video</span>
+                </button>
+                <button class="menu-item" data-type="image">
+                    <i class="fas fa-image"></i>
+                    <span>Image</span>
+                </button>
+                <button class="menu-item" data-type="model3d">
+                    <i class="fas fa-cube"></i>
+                    <span>3D Model</span>
+                </button>
+            </div>
+
+            <div class="stats">
+                <h3>Your Stats</h3>
+                <div class="stat-item">
+                    <span>Videos Generated</span>
+                    <strong id="videoCount">0</strong>
+                </div>
+                <div class="stat-item">
+                    <span>Images Generated</span>
+                    <strong id="imageCount">0</strong>
+                </div>
+                <div class="stat-item">
+                    <span>3D Models</span>
+                    <strong id="modelCount">0</strong>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Area -->
+        <main class="dashboard-main">
+            <!-- Generator Panel -->
+            <div class="generator-panel">
+                <div class="panel-header">
+                    <h2 id="generatorTitle">Generate Video</h2>
+                    <p id="generatorDescription">Create stunning AI-generated videos from text prompts</p>
+                </div>
+
+                <form id="generatorForm" class="generator-form">
+                    <div class="form-group">
+                        <label for="prompt">Describe what you want to create</label>
+                        <textarea id="prompt" placeholder="Example: A beautiful sunset over the ocean with waves crashing on the beach..." required></textarea>
+                        <small>Be descriptive for better results</small>
+                    </div>
+
+                    <div id="advancedSettings" class="advanced-settings" style="display: none;">
+                        <div class="settings-grid">
+                            <div class="form-group">
+                                <label for="duration">Duration (seconds)</label>
+                                <select id="duration">
+                                    <option value="15">15 seconds</option>
+                                    <option value="30" selected>30 seconds</option>
+                                    <option value="60">60 seconds</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="style">Style</label>
+                                <select id="style">
+                                    <option value="realistic">Realistic</option>
+                                    <option value="cinematic">Cinematic</option>
+                                    <option value="artistic">Artistic</option>
+                                    <option value="anime">Anime</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="quality">Quality</label>
+                                <select id="quality">
+                                    <option value="720p">720p</option>
+                                    <option value="1080p" selected>1080p</option>
+                                    <option value="2160p">4K</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="toggleAdvanced()">
+                            <i class="fas fa-sliders-h"></i>
+                            Advanced Settings
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-magic"></i>
+                            Generate
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Progress -->
+                <div id="progressSection" class="progress-section" style="display: none;">
+                    <div class="progress-info">
+                        <h3>Generating...</h3>
+                        <p id="progressText">Please wait while we create your content</p>
+                    </div>
+                    <div class="progress-bar">
+                        <div id="progressFill" class="progress-fill"></div>
+                    </div>
+                    <p id="progressPercentage">0%</p>
+                </div>
+            </div>
+
+            <!-- Recent Generations -->
+            <div class="recent-section">
+                <h3>Recent Generations</h3>
+                <div id="recentGrid" class="recent-grid">
+                    <div class="empty-state">
+                        <i class="fas fa-sparkles"></i>
+                        <p>No generations yet. Create your first one!</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for viewing -->
+    <div id="viewModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
